@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  kauth_app:
+    image: ruby:2.6.5
+    working_dir: /app
+    volumes:
+      - "./kauth:/app:cached"
+      - "kauth_bundle:/usr/local/bundle"
+    depends_on:
+      - kauth_mysql
+  kauth_mysql:
+    image: mysql:8.0
+    ports:
+      - "13306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - "kauth_mysql:/var/lib/mysql"
+volumes:
+  kauth_bundle:
+  kauth_mysql:
