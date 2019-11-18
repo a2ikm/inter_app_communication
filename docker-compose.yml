@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   kauth:
-    image: ruby:2.6.5
+    image: ruby:2.6.5-buster
     working_dir: /app
     volumes:
       - "./kauth:/app:cached"
