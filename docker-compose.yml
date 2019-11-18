@@ -16,6 +16,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - "kauth-mysql:/var/lib/mysql"
+      - "./kauth-mysql/conf.d:/etc/mysql/conf.d"
 volumes:
   kauth-bundle:
   kauth-mysql:
