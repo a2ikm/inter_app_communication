@@ -5,7 +5,7 @@ services:
     working_dir: /app
     volumes:
       - "./kauth:/app:cached"
-      - "kauth_bundle:/usr/local/bundle"
+      - "kauth-bundle:/usr/local/bundle"
     depends_on:
       - kauth-mysql
   kauth-mysql:
@@ -17,5 +17,5 @@ services:
     volumes:
       - "kauth-mysql:/var/lib/mysql"
 volumes:
-  kauth_bundle:
+  kauth-bundle:
   kauth-mysql:
