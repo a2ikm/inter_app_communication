@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  kauth_app:
+  kauth:
     image: ruby:2.6.5
     working_dir: /app
     volumes:
