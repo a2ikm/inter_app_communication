@@ -3,6 +3,8 @@ services:
   kauth:
     image: ruby:2.6.5-buster
     working_dir: /app
+    environment:
+      DATABASE_URL: mysql2://root:root@kauth-mysql:3306
     volumes:
       - "./kauth:/app:cached"
       - "kauth-bundle:/usr/local/bundle"
