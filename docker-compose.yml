@@ -15,6 +15,7 @@ services:
     volumes:
       - "./kauth:/app:cached"
       - "kauth-bundle:/usr/local/bundle"
+      - "kauth-tmp:/app/tmp"
     depends_on:
       - kauth-mysql
   kauth-mysql:
@@ -35,6 +36,7 @@ services:
     volumes:
       - "./kblog:/app:cached"
       - "kblog-bundle:/usr/local/bundle"
+      - "kblog-tmp:/app/tmp"
     depends_on:
       - kblog-mysql
   kblog-mysql:
@@ -48,6 +50,8 @@ services:
       - "./kblog-mysql/conf.d:/etc/mysql/conf.d"
 volumes:
   kauth-bundle:
+  kauth-tmp:
   kauth-mysql:
   kblog-bundle:
+  kblog-tmp:
   kblog-mysql:
