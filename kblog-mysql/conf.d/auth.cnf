@@ -1,0 +1,3 @@
+# https://mysqlserverteam.com/upgrading-to-mysql-8-0-default-authentication-plugin-considerations/
+[mysqld]
+default-authentication-plugin=mysql_native_password

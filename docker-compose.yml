@@ -26,6 +26,28 @@ services:
     volumes:
       - "kauth-mysql:/var/lib/mysql"
       - "./kauth-mysql/conf.d:/etc/mysql/conf.d"
+  kblog:
+    image: ruby:2.6.5-buster
+    working_dir: /app
+    command: bundle exec rails s -p 3000 -b 0.0.0.0
+    environment:
+      DATABASE_URL: mysql2://root:root@kblog-mysql:3306
+    volumes:
+      - "./kblog:/app:cached"
+      - "kblog-bundle:/usr/local/bundle"
+    depends_on:
+      - kblog-mysql
+  kblog-mysql:
+    image: mysql:8.0
+    ports:
+      - "23306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - "kblog-mysql:/var/lib/mysql"
+      - "./kblog-mysql/conf.d:/etc/mysql/conf.d"
 volumes:
   kauth-bundle:
   kauth-mysql:
+  kblog-bundle:
+  kblog-mysql:
